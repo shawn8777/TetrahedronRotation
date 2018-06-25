@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
     
     private Transform _pivot;
     private Vector3 _rotation;
-    private float _distance = 50.0f;
+    private float _distance = 100.0f;
     public Transform Target;
     private Vector3  StartView;
     private bool viewRestore = false;
@@ -66,8 +66,7 @@ public class CameraController : MonoBehaviour
             viewRestore = false;
         }
         if (viewRestore == true)
-        {
-            
+        {           
             var r = Quaternion.Euler(StartView.x, StartView.y, 0.0f);
             _pivot.rotation = Quaternion.Lerp(_pivot .rotation , r, 0.2f);
             var s = Mathf.Lerp(transform.localPosition.z, -120f, 0.1f);

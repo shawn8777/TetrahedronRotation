@@ -5,8 +5,8 @@ using UnityEngine;
 public class Edge : MonoBehaviour
 {
     // Variables
-    public readonly Transform _start;
-    public readonly Transform _end;
+    public  Transform _start;
+    public  Transform _end;
 
     private Transform _edge;
     public Material _sharedEdge;

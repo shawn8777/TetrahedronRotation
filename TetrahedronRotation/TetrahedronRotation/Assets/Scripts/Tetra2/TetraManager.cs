@@ -9,7 +9,12 @@ public class TetraManager : MonoBehaviour
     [SerializeField] private int CountX = 5;
     [SerializeField] private int CountZ = 5;
     [SerializeField] private float Scale = 1f;
-   // private int s = -1;
+
+    public Material Selected;
+    public Material UnSelected;
+    string[] N = new string[1];
+
+    // private int s = -1;
     List<Vector3> SavedPositions = new List<Vector3>();
     Dictionary<string, int> _bot;
     public void Awake()
@@ -21,61 +26,69 @@ public class TetraManager : MonoBehaviour
     {
         SetPosition();
     }
+  
+    GameObject Slb;
 
     // Update is called once per frame
     void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-           // Chose();
-        }
+    {   
         if (Input.GetKeyDown(KeyCode.Space))
-        {
-            CheckNeighbor();
-        }
-        if (Input.GetKeyDown(KeyCode.V))
         {
             CheckEdge();
         }
-
-        if (Input.GetKeyDown(KeyCode.R))
+        
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Rotate();
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hitInfo;
+            bool didHit = Physics.Raycast(ray, out hitInfo, 500.0f);
+            if(didHit)
+            {
+                print(hitInfo.collider.name);
+                if(hitInfo.collider.name.Contains("Tetra"))
+                {
+                    //Slb = hitInfo.transform.gameObject;
+                    //Slb.GetComponent<MeshRenderer>().material = Selected;
+                    N[0] = hitInfo.collider.name;
+                }
+            }
+            else
+            {
+               
+                print("nothing");
+            }           
         }
     }
 
-    void Chose()
-    {       
-        print(Bots[0].name);
-    }
-
-    void CheckNeighbor()
-    {
-       
-        //for (int i = 1; i < Bots.Count; i++)
-        //{
-        //    //Bots[0].CheckNeighborTetra(Bots[i]);
-        //}
-    }
     
     void CheckEdge()
     {
-        Bots[3].Checkedge();
-        SelectFace();
+        if(N[0]!=null)
+        {
+            var i = _bot[N[0]];
+            Bots[i].Checkedge();
+            SelectFace(i);
+        }
+        else
+        {
+            print("Please select the tetrahedron");
+        }        
+       
     }
 
-    public void SelectFace()
+    public void SelectFace(int i)
     {
-        var n = Bots[3].others;
-        var i = _bot[n];
-        var b = Bots[i];
-        Bots[3].CheckNeighbor(b);
-        Rotate();
+        var n = Bots[i].others;
+        var e = _bot[n];
+        var b = Bots[e];
+        Bots[i].CheckNeighbor(b);
+        Rotate(i);
     }
 
-    void Rotate()
+    void Rotate(int i)
     {
-        Bots[3].Rotate();
+        Bots[i].Rotate();
+        //N[0] = null;
     }
    
     //add tetrahedron
@@ -89,7 +102,7 @@ public class TetraManager : MonoBehaviour
               
                 Bots.Add(tb);
 
-                tb.gameObject.name = "Tetra_" + Bots.IndexOf(tb);//x.ToString() + ":" + z.ToString();
+                tb.gameObject.name = "TetraR_" + Bots.IndexOf(tb);//x.ToString() + ":" + z.ToString();
 
                 _bot.Add(tb.gameObject.name, Bots.IndexOf(tb));
 

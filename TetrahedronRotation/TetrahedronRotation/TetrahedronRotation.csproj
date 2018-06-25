@@ -309,6 +309,7 @@
     <Compile Include="Assets\angle.cs" />
     <Compile Include="Assets\Evaulation.cs" />
     <Compile Include="Assets\FpCollider.cs" />
+    <Compile Include="Assets\PhysicalTesting.cs" />
     <Compile Include="Assets\Scripts\Common\Camera\CameraController.cs" />
     <Compile Include="Assets\Scripts\Common\Camera\Orbit.cs" />
     <Compile Include="Assets\Scripts\Common\Camera\Pan.cs" />
@@ -317,12 +318,40 @@
     <Compile Include="Assets\Scripts\RotationManager.cs" />
     <Compile Include="Assets\Scripts\Tetra2\Edge.cs" />
     <Compile Include="Assets\Scripts\Tetra2\Face.cs" />
+    <Compile Include="Assets\Scripts\Tetra2\ISelectionHandler.cs" />
     <Compile Include="Assets\Scripts\Tetra2\Tetra.cs" />
     <Compile Include="Assets\Scripts\Tetra2\TetraManager.cs" />
     <Compile Include="Assets\Scripts\TetraBot.cs" />
     <Compile Include="Assets\Scripts\TetraEdge.cs" />
     <Compile Include="Assets\Scripts\TetraFace.cs" />
+    <Compile Include="Assets\Scripts\Vertex.cs" />
     <Compile Include="Assets\Scripts\VpCollider.cs" />
+    <Compile Include="Assets\Truss Physics\Assets\TxMatter.cs" />
+    <Compile Include="Assets\Truss Physics\Assets\TxTruss.cs" />
+    <Compile Include="Assets\Truss Physics\Design\TxDestroy.cs" />
+    <Compile Include="Assets\Truss Physics\Design\TxFaceHandle.cs" />
+    <Compile Include="Assets\Truss Physics\Design\TxLinkHandle.cs" />
+    <Compile Include="Assets\Truss Physics\Design\TxNodeHandle.cs" />
+    <Compile Include="Assets\Truss Physics\Design\TxTrussDesigner.cs" />
+    <Compile Include="Assets\Truss Physics\Native\TxNative.cs" />
+    <Compile Include="Assets\Truss Physics\Runtime\TxBody.cs" />
+    <Compile Include="Assets\Truss Physics\Runtime\TxComponent.cs" />
+    <Compile Include="Assets\Truss Physics\Runtime\TxConstraint.cs" />
+    <Compile Include="Assets\Truss Physics\Runtime\TxPhysics.cs" />
+    <Compile Include="Assets\Truss Physics\Runtime\TxRigidBody.cs" />
+    <Compile Include="Assets\Truss Physics\Runtime\TxSceneSettings.cs" />
+    <Compile Include="Assets\Truss Physics\Runtime\TxSoftBody.cs" />
+    <Compile Include="Assets\Truss Physics\Runtime\TxStaticBody.cs" />
+    <Compile Include="Assets\Truss Physics\Runtime\TxWorld.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Truss Physics Demos\1. Simple Truss\ReadMe.txt" />
+    <None Include="Assets\Truss Physics Demos\2. Deformation\ReadMe.txt" />
+    <None Include="Assets\Truss Physics Demos\3. Constraints\ReadMe.txt" />
+    <None Include="Assets\Truss Physics Demos\4. Matter\ReadMe.txt" />
+    <None Include="Assets\Truss Physics Demos\5. Pressure\ReadMe.txt" />
+    <None Include="Assets\Truss Physics Demos\6. Rigid Body\ReadMe.txt" />
+    <None Include="Assets\Truss Physics\ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
