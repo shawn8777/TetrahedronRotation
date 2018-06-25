@@ -60,22 +60,22 @@ public class TetraManager : MonoBehaviour
     
     void CheckEdge()
     {
-        Bots[0].Checkedge();
+        Bots[3].Checkedge();
         SelectFace();
     }
 
     public void SelectFace()
     {
-        var n = Bots[0].others;
+        var n = Bots[3].others;
         var i = _bot[n];
         var b = Bots[i];
-        Bots[0].CheckNeighbor(b);
+        Bots[3].CheckNeighbor(b);
         Rotate();
     }
 
     void Rotate()
     {
-        Bots[0].Rotate();
+        Bots[3].Rotate();
     }
    
     //add tetrahedron

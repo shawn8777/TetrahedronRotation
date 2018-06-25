@@ -105,41 +105,6 @@ public class Tetra : MonoBehaviour
         Edgeface.Add(E3, Ef3);
         Edgeface.Add(E4, Ef4);
         Edgeface.Add(E5, Ef5);
-
-        //for checking face
-        List<Transform> ef0 = new List<Transform>();
-        List<Transform> ef1 = new List<Transform>();
-        List<Transform> ef2 = new List<Transform>();
-        List<Transform> ef3 = new List<Transform>();
-        List<Transform> ef4 = new List<Transform>();
-        List<Transform> ef5 = new List<Transform>();
-        //Edge and Two Faces
-        //for E0
-        ef0.Add(F0.transform);
-        ef0.Add(F3.transform);
-        //for E1
-        ef1.Add(F0.transform);
-        ef1.Add(F1.transform);
-        //for E2
-        ef2.Add(F0.transform);
-        ef2.Add(F2.transform);
-        //for E3
-        ef3.Add(F1.transform);
-        ef3.Add(F3.transform);
-        //for E4
-        ef4.Add(F1.transform);
-        ef4.Add(F2.transform);
-        //for E5
-        ef5.Add(F2.transform);
-        ef5.Add(F3.transform);
-        //add edge and face 
-        _edgeface.Add(E0.transform, ef0);
-        _edgeface.Add(E1.transform, ef1);
-        _edgeface.Add(E2.transform, ef2);
-        _edgeface.Add(E3.transform, ef3);
-        _edgeface.Add(E4.transform, ef4);
-        _edgeface.Add(E5.transform, ef5);
-
         //vertex
         var p0 = v0.position;
         var p1 = v1.position;
